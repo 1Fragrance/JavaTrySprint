@@ -62,17 +62,17 @@
     <div>
         <div class="form-row">
             <label for="elem1">Количество финансовых коэффициентов, участвующих в расчете</label>
-            <input type="number" class="form-control" id="elem1">
+            <input type="number" class="form-control" id="elem1" required>
         </div>
 
         <div class="form-row">
             <label for="elem2">Значение финансового коэффициента i у организации j.</label>
-            <input type="number" class="form-control" id="elem2">
+            <input type="number" class="form-control" id="elem2" required>
         </div>
 
         <div class="form-row">
             <label for="elem3">Эталонное значение финансового коэффициента i.</label>
-            <input type="number"class="form-control" id="elem3">
+            <input type="number"class="form-control" id="elem3" required>
         </div>
 
         <input style="margin-top: 10px" class="btn btn-primary btn-lg" id="butt" type="button" value="Расчитать"/>

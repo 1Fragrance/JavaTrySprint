@@ -66,12 +66,12 @@
     <div>
         <div class="form-row">
             <label for="elem1">Собственный капитал компании-эмитента, тыс. руб.</label>
-            <input type="number" class="form-control" id="elem1">
+            <input type="number" class="form-control" id="elem1" required>
         </div>
 
         <div class="form-row">
             <label for="elem2">Валюта баланса, общая величина активов организации, тыс. руб.</label>
-            <input type="number" class="form-control" id="elem2">
+            <input type="number" class="form-control" id="elem2" required>
         </div>
 
         <input style="margin-top: 10px" class="btn btn-primary btn-lg" id="butt" type="button" value="Расчитать"/>

@@ -27,8 +27,8 @@
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
             <span>${message}</span>
-            <input name="username" type="text" class="form-control" placeholder="Имя пользователя" autofocus/>
-            <input name="password" type="password" class="form-control" placeholder="Пароль"/>
+            <input name="username" type="text" class="form-control" placeholder="Имя пользователя" autofocus required/>
+            <input name="password" type="password" class="form-control" placeholder="Пароль" required/>
             <span>${error}</span>
 
             <button class="btn btn-lg btn-primary btn-block" type="submit">Вход</button>

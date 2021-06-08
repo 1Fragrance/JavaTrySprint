@@ -67,17 +67,17 @@
     <div>
         <div class="form-row">
             <label for="elem1">Количество активов</label>
-            <input type="number" class="form-control" id="elem1">
+            <input type="number" class="form-control" id="elem1" required>
         </div>
 
         <div class="form-row">
             <label for="elem2">Стоимость совокупных активов компании на начало года, тыс руб.</label>
-            <input type="number" class="form-control" id="elem2">
+            <input type="number" class="form-control" id="elem2" required>
         </div>
 
         <div class="form-row">
             <label for="elem3">Стоимость совокупных активов компании на конец года, тыс руб.</label>
-            <input type="number"class="form-control" id="elem3">
+            <input type="number"class="form-control" id="elem3" required>
         </div>
 
         <input style="margin-top: 10px" class="btn btn-primary btn-lg" id="butt" type="button" value="Расчитать"/>
