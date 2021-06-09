@@ -1,5 +1,7 @@
 package net.investmentAttractivenessAnalyzer.services;
 
+import net.investmentAttractivenessAnalyzer.enums.UserStatuses;
+import net.investmentAttractivenessAnalyzer.models.UserStatus;
 import net.investmentAttractivenessAnalyzer.repositories.UserRepository;
 import net.investmentAttractivenessAnalyzer.models.Role;
 import net.investmentAttractivenessAnalyzer.models.User;
@@ -24,6 +26,10 @@ public class UserDetailService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         User user = userRepository.findByUsername(username);
+        if((user.getStatus().getId().intValue() == UserStatuses.Blocked.getStatus())) {
+            throw new UsernameNotFoundException("user is blocked");
+        }
+
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         grantedAuthorities.add(new SimpleGrantedAuthority(user.getRole().getName()));
 

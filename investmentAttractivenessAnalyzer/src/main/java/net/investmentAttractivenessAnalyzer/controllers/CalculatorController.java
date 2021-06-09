@@ -3,6 +3,7 @@ package net.investmentAttractivenessAnalyzer.controllers;
 import net.investmentAttractivenessAnalyzer.enums.OperationTypes;
 import net.investmentAttractivenessAnalyzer.services.interfaces.IOperationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ public class CalculatorController {
     @Autowired
     private IOperationService operationService;
 
+    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
     @RequestMapping(value = {"calculator/liquidity-and-solvency"}, method = RequestMethod.GET)
     public String CalcLiquidityAndSolvency(Model model,
                             @RequestParam(value = "OA", required = false) final String OA,
@@ -33,6 +35,7 @@ public class CalculatorController {
         return "calculator/liquidityAndSolvencyCalc";
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
     @RequestMapping(value = {"calculator/financial-stability"}, method = RequestMethod.GET)
     public String calcFinancialStability(Model model,
                             @RequestParam(value = "SK", required = false) final String SK,
@@ -51,6 +54,7 @@ public class CalculatorController {
         return "calculator/financialStabilityCalc";
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
     @RequestMapping(value = {"calculator/asset-turnover"}, method = RequestMethod.GET)
     public String calcAssetTurnover(Model model,
                          @RequestParam(value = "N", required = false) final String N,
@@ -71,6 +75,7 @@ public class CalculatorController {
         return "calculator/assetTurnoverCalc";
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
     @RequestMapping(value = {"calculator/profitability-of-economic-activity"}, method = RequestMethod.GET)
     public String calcProfitabilityOfEconomicActivity(Model model,
                          @RequestParam(value = "RC", required = false) final String RC,
@@ -91,6 +96,7 @@ public class CalculatorController {
         return "calculator/profitabilityOfEconomicActivityCalc";
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
     @RequestMapping(value = {"calculator/company-performance"}, method = RequestMethod.GET)
     public String calcCompanyPerformance(Model model,
                          @RequestParam(value = "N", required = false) final String N,

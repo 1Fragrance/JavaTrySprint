@@ -68,6 +68,7 @@ public class UserController {
         return "main";
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String admin(Model model) {
         model.addAttribute("users", userService.findAll());
@@ -75,6 +76,7 @@ public class UserController {
         return "admin";
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/blockUser", method = RequestMethod.GET)
     public String blockUser(Model model, @RequestParam(value = "id") final Long id) {
         userService.blockUser(id);
@@ -83,6 +85,7 @@ public class UserController {
         return "admin";
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/restoreUser", method = RequestMethod.GET)
     public String restoreUser(Model model, @RequestParam(value = "id") final Long id) {
         userService.restoreUser(id);
