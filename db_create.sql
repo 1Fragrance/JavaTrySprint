@@ -46,10 +46,10 @@ create table if not exists "investimentAttractiveness".users
 	password varchar not null,
 	user_status integer not null
 		constraint status_fk
-			references user_statuses,
+			references "investimentAttractiveness".user_statuses,
 	role integer not null
 		constraint role_fk
-			references roles
+			references "investimentAttractiveness".roles
 );
 
 alter table "investimentAttractiveness".users owner to postgres;
