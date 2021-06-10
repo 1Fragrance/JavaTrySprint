@@ -2,7 +2,7 @@ create schema "investimentAttractiveness";
 
 alter schema "investimentAttractiveness" owner to postgres;
 
-create table if not exists result_logs
+create table if not exists "investimentAttractiveness".result_logs
 (
 	id integer generated always as identity
 		constraint result_logs_pkey
@@ -15,9 +15,9 @@ create table if not exists result_logs
 	returned_result varchar
 );
 
-alter table result_logs owner to postgres;
+alter table "investimentAttractiveness".result_logs owner to postgres;
 
-create table if not exists roles
+create table if not exists "investimentAttractiveness".roles
 (
 	id integer not null
 		constraint roles_pkey
@@ -25,9 +25,9 @@ create table if not exists roles
 	name varchar not null
 );
 
-alter table roles owner to postgres;
+alter table "investimentAttractiveness".roles owner to postgres;
 
-create table if not exists user_statuses
+create table if not exists "investimentAttractiveness".user_statuses
 (
 	id integer not null
 		constraint user_statuses_pkey
@@ -35,9 +35,9 @@ create table if not exists user_statuses
 	name varchar not null
 );
 
-alter table user_statuses owner to postgres;
+alter table "investimentAttractiveness".user_statuses owner to postgres;
 
-create table if not exists users
+create table if not exists "investimentAttractiveness".users
 (
 	id integer generated always as identity
 		constraint users_pkey
@@ -52,7 +52,7 @@ create table if not exists users
 			references roles
 );
 
-alter table users owner to postgres;
+alter table "investimentAttractiveness".users owner to postgres;
 
 
 INSERT INTO "investimentAttractiveness".roles(id, name)
