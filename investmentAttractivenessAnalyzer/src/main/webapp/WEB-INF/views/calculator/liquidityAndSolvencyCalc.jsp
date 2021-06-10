@@ -69,11 +69,14 @@
             <input type="number" class="form-control" id="elem2" required>
         </div>
 
-        <input style="margin-top: 10px" class="btn btn-primary btn-lg" id="butt" type="button" value="Расчитать"/>
+        <input style="margin-top: 10px" class="btn btn-primary btn-lg" id="butt" type="button" value="Рассчитать"/>
     </div>
     <br>
     <div class="container" id="result">
         <hr />
+        <c:if test="${not empty error}">
+            <h3 class="text-center" , style="color: red">Ошибка: ${error}</h3>
+        </c:if>
         <h3 class="text-center">Результат: ${result}</h3>
         <br>
         <h4>Введенные данные:</h4>

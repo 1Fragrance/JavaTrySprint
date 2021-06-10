@@ -80,7 +80,7 @@
             <input type="number"class="form-control" id="elem3" required>
         </div>
 
-        <input style="margin-top: 10px" class="btn btn-primary btn-lg" id="butt" type="button" value="Расчитать"/>
+        <input style="margin-top: 10px" class="btn btn-primary btn-lg" id="butt" type="button" value="Рассчитать"/>
     </div>
     <br>
 

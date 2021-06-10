@@ -23,7 +23,12 @@ public class CalculatorController {
                             @RequestParam(value = "KO", required = false) final String KO) {
         float result = 0;
         if (OA != null && KO != null && !OA.equals("") && !KO.equals("")) {
-            result = operationService.calcLiquidityAndSolvency(Float.parseFloat(KO), Float.parseFloat(OA));
+            if(Float.parseFloat(KO) == 0) {
+                model.addAttribute("error", "Параметр в знаменателе не может быть равен нулю");
+            } else {
+                model.addAttribute("error", "");
+                result = operationService.calcLiquidityAndSolvency(Float.parseFloat(KO), Float.parseFloat(OA));
+            }
         }
 
         model.addAttribute("result", result);
@@ -42,7 +47,12 @@ public class CalculatorController {
                             @RequestParam(value = "VB", required = false) final String VB) {
         float result = 0;
         if (SK != null && VB != null && !SK.equals("") && !VB.equals("")) {
-            result = operationService.calcFinancialStability(Float.parseFloat(SK),  Float.parseFloat(VB));
+            if(Float.parseFloat(VB) == 0) {
+                model.addAttribute("error", "Параметр в знаменателе не может быть равен нулю");
+            } else {
+                model.addAttribute("error", "");
+                result = operationService.calcFinancialStability(Float.parseFloat(SK),  Float.parseFloat(VB));
+            }
         }
 
         model.addAttribute("result", result);
@@ -103,8 +113,14 @@ public class CalculatorController {
                          @RequestParam(value = "XIJ", required = false) final String XIEJ,
                          @RequestParam(value = "XIET", required = false) final String XIET) {
         float result = 0;
+
         if (N != null && XIEJ != null && XIET != null && !N.equals("") && !XIEJ.equals("") && !XIET.equals("")) {
-            result = operationService.calcCompanyPerformance(Integer.valueOf(N), Float.parseFloat(XIEJ), Float.parseFloat(XIET));
+            if(Float.parseFloat(XIET) == 0) {
+                model.addAttribute("error", "Параметр в знаменателе не может быть равен нулю");
+            } else {
+                model.addAttribute("error", "");
+                result = operationService.calcCompanyPerformance(Integer.valueOf(N), Float.parseFloat(XIEJ), Float.parseFloat(XIET));
+            }
         }
 
         model.addAttribute("result", result);
